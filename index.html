@@ -51,7 +51,7 @@
       
       // TODO: set the title text to show the count, e.g., "My Items (N)"
       // Use items.length for N
-      titleEl.textContent = "My Items (${items.length})";
+      titleEl.textContent = `My Items (${items.length})`;
     }
 
     function render() {
@@ -90,7 +90,7 @@
       // - call render()
       items.push({
         id: nextId++,
-        name: name,
+        name,
         color: randomColor(),
         done: false
       });
