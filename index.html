@@ -98,11 +98,24 @@
 
     // 2) Delete last item on button click
     btnDeleteLast.addEventListener("click", () => {
+      if (items.length > 0) {
+        items.pop();
+        render();
+      }
       // TODO: remove the last element from items if any, then call render()
     });
 
     // 3) Toggle "done" by clicking an item (event delegation on the <ul>)
     listEl.addEventListener("click", (e) => {
+      const li = e.target.closest("li");
+      if (!li) return;
+
+      const id = Number(li.dataset.id);
+      const item = items.find(obj => obj.id === id);
+      if (item) {
+        item.done = !item.done;
+        render();
+      }
       // TODO:
       // - find the closest <li> (e.target.closest("li"))
       // - read its data-id, find the matching item in items
