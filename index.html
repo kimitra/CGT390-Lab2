@@ -57,11 +57,13 @@
     function render() {
       listEl.innerHTML = "";
 
-      items.forEach(item =>{
+      items.forEach(item => {
+        const li = document.createElement("li");
         li.textContent = item.name;
       if (item.done) {
         li.classList.add("done");
       }
+      li.dataset.id = item.id;
       li.style.background = item.color;
       listEl.appendChild(li);
       });
